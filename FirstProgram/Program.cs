@@ -10,89 +10,54 @@ namespace FirstProgram
 
         static void Main(string[] args)
         {
-            int[] arr = { 5, -7, 3, 5, 4 };
-            int mediun;
-            if (arr.Length % 2 == 0)
-            {
-                mediun = arr.Length / 2;
-            }
-            else
-            {
-                mediun = arr.Length / 2 + 1;
-            }
-            SortBubleMaxMin(arr, 1, mediun);
-            SortBubleMinMax(arr, mediun + 1, arr.Length);
-            
+            int[] arr = { 5, -7, 6, 3, 4 };
+            int mediun = arr.Length/2;
+
+            SelectionMaxMinSort(arr, 0, mediun);
+            SelectionMinMaxSort(arr, mediun, arr.Length);
             foreach (int i in arr)
             {
                 Debug.WriteLine(i);
             }
         }
-        static void SortBubleMinMax(int[] arr, int startindex, int endindex)
+
+        static void SelectionMinMaxSort(int[] arr, int startindex, int ednindex)
         {
-            for (int i = startindex; i < endindex; i++)
+          
+            for (int i = startindex; i < ednindex; i++)
             {
-                if (arr[i - 1] > arr[i])
+                int minIndex = i;
+                for (int j = i + 1; j < ednindex; j++)
                 {
-                    int buble = arr[i - 1];
-                    arr[i - 1] = arr[i];
-                    arr[i] = buble;
+                    if (arr[j] < arr[minIndex])
+                    {
+                        minIndex = j;
+                    }
                 }
+                int temp = arr[minIndex];
+                arr[minIndex] = arr[i];
+                arr[i] = temp;
             }
+
         }
-        static void SortBubleMaxMin(int[] arr, int startindex, int endindex)
+        static void SelectionMaxMinSort(int[] arr, int startindex, int ednindex)
         {
-            for (int i = startindex; i < endindex; i++)
+            for (int i = startindex; i < ednindex; i++)
             {
-                if (arr[i - 1] < arr[i])
+                int maxIndex = i;
+                for (int j = i + 1; j < ednindex; j++)
                 {
-                    int buble = arr[i - 1];
-                    arr[i - 1] = arr[i];
-                    arr[i] = buble;
+                    if (arr[j] > arr[maxIndex])
+                    {
+                        maxIndex = j;
+                    }
                 }
+                int temp = arr[maxIndex];
+                arr[maxIndex] = arr[i];
+                arr[i] = temp;
             }
+
         }
-
-        //static void SelectionMinMaxSort(int[] arr) 
-        //{
-        //    int count = arr.Length;
-        //    for (int i = 0; i < count; i++) 
-        //    {
-        //        int minIndex = i;
-        //        for (int j = i + 1; j < count; j++) 
-        //        {
-        //            if (arr[j] < arr[minIndex]) 
-        //            {
-        //                minIndex = j;
-        //            }
-        //        }
-        //        int temp = arr[minIndex];
-        //        arr[minIndex] = arr[i];
-        //        arr[i] = temp;
-        //    }
-
-        //}
-        //static void SelectionMaxMinSort(int[] arr)
-        //{
-        //    int count = arr.Length;
-        //    for (int i = 0; i < count; i++)
-        //    {
-        //        int maxIndex = i;
-        //        for (int j = i + 1; j < count; j++)
-        //        {
-        //            if (arr[j] > arr[maxIndex])
-        //            {
-        //                maxIndex = j;
-        //            }
-        //        }
-        //        int temp = arr[maxIndex];
-        //        arr[maxIndex] = arr[i];
-        //        arr[i] = temp;
-        //    }
-
-        //}
-
-
 
     }
 }
