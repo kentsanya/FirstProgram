@@ -10,9 +10,13 @@ namespace FirstProgram
 
         static void Main(string[] args)
         {
-            int[] arr = { 5, -7, 6, 3, 4 };
-            
+            int[] arr = { 5, -7, 6, 3, 4, 5, 6, 7, 8, 5, 7, 8, 8 };
 
+           
+            int separator = arr.Length / 3;
+            ChangeSelection(arr, 0, separator, false);
+            ChangeSelection(arr, separator, separator + separator, true);
+        
 
             foreach (int i in arr)
             {
@@ -41,9 +45,9 @@ namespace FirstProgram
         }
         static void ChangeSelection(int[] arr, int starindex, int endindex, bool reverce) 
         {
-            if (reverce)
+            if (!reverce)
             {
-                SelectionMaxMinSort(arr, starindex, endindex);
+                SelectionMinMaxSort(arr, starindex, endindex);
             }
             else
             {
