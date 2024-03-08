@@ -11,10 +11,9 @@ namespace FirstProgram
         static void Main(string[] args)
         {
             int[] arr = { 5, -7, 6, 3, 4 };
-            int mediun = arr.Length/2;
+            
 
-            SelectionMaxMinSort(arr, 0, mediun);
-            SelectionMinMaxSort(arr, mediun, arr.Length);
+
             foreach (int i in arr)
             {
                 Debug.WriteLine(i);
@@ -39,6 +38,17 @@ namespace FirstProgram
                 arr[i] = temp;
             }
 
+        }
+        static void ChangeSelection(int[] arr, int starindex, int endindex, bool reverce) 
+        {
+            if (reverce)
+            {
+                SelectionMaxMinSort(arr, starindex, endindex);
+            }
+            else
+            {
+                SelectionMaxMinSort(arr, starindex, endindex);
+            }
         }
         static void SelectionMaxMinSort(int[] arr, int startindex, int ednindex)
         {
